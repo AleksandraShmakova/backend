@@ -6,17 +6,13 @@ import (
 )
 
 func Say() {
-	m := mutex.NewMutex()
+	m := mutex.NewMutex(3)
 
-	m.Lock()
-	fmt.Println("Locked the mutex")
-	go func() {
-		defer m.Unlock()
-		fmt.Println("Unlocked from goroutine")
-	}()
-
-	m.Lock() // Ждем, пока горутина освободит мьютекс
-	fmt.Println("Locked again")
-	m.Unlock()
-	fmt.Println("Unlocked the mutex")
+	for i := 0; i < 3; i++ {
+		go func(i int) {
+			defer m.Unlock()
+			fmt.Printf("Горутина %d: Привет, мир!\n", i)
+		}(i)
+	}
+	m.Wait()
 }
