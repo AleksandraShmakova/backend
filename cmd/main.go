@@ -2,17 +2,20 @@ package main
 
 import (
 	"fmt"
+	"net/http"
 	"github.com/AleksandraShmakova/backend/internal/parallel"
-	"github.com/AleksandraShmakova/backend/internal/server"
 )
 
 func main() {
-	fmt.Println("Running parallel example:")
-	parallel.Say()
-
 	fmt.Println("Starting server at :8080")
-	srv := server.New(":8080")
-	err := srv.ListenAndServe()
+
+	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
+		// Вызов функции Say и отправка результата в HTTP-ответ
+		result := parallel.Say()
+		fmt.Fprintln(w, result)
+	})
+
+	err := http.ListenAndServe(":8080", nil)
 	if err != nil {
 		fmt.Println("Server error:", err)
 	}
