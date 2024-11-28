@@ -2,8 +2,8 @@ package main
 
 import (
 	"fmt"
-	"github.com/username/mutex-demo/internal/parallel"
-	"github.com/username/mutex-demo/internal/server"
+	"github.com/AleksandraShmakova/backend/internal/parallel"
+	"github.com/AleksandraShmakova/backend/internal/server"
 )
 
 func main() {
