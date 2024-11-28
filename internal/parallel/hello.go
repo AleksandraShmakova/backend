@@ -2,7 +2,7 @@ package parallel
 
 import (
 	"fmt"
-	"github.com/username/mymutexproject/pkg/mutex"
+	"github.com/AleksandraShmakova/backend/pkg/mutex"
 	"strings"
 )
 
