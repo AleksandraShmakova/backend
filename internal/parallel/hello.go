@@ -2,7 +2,7 @@ package parallel
 
 import (
 	"fmt"
-	"github.com/username/mutex-demo/pkg/mutex"
+	"github.com/AleksandraShmakova/backend/pkg/mutex"
 )
 
 func Say() {
