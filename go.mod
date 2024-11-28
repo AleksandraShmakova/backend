@@ -1,3 +1,3 @@
-module github.com/username/mutex-demo
+module github.com/AleksandraShmakova/backend
 
 go 1.20
